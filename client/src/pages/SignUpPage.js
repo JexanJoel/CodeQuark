@@ -15,7 +15,7 @@ const SignUpPage = ({ setUser }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://codequark.onrender.com/', formData);
+      await axios.post('https://codequark.onrender.com/api/register', formData);
       navigate('/login');
     } catch (err) {
       setError(err.response?.data?.error || 'Registration failed');
