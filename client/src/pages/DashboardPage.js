@@ -11,7 +11,7 @@ const DashboardPage = () => {
     const fetchProfile = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('https://codequark.onrender.com/', {
+        const res = await axios.get('https://codequark.onrender.com/api/profile', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setProfile(res.data);
