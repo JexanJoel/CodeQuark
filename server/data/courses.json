@@ -1,0 +1,1311 @@
+[
+  {
+    "course": "react",
+    "chapters": [
+      {
+        "chapter": 1,
+        "title": "Introduction to React",
+        "content": "React, developed by Meta AI, is a powerful JavaScript library designed for building dynamic, interactive user interfaces, particularly for single-page applications (SPAs). Unlike traditional multi-page applications, SPAs update content dynamically without full page reloads, providing a smoother user experience. React achieves this through a component-based architecture, where reusable UI elements are created as independent components. At its core, React uses a virtual DOM to optimize rendering by minimizing direct manipulations of the actual DOM, updating only changed elements. Its declarative syntax allows developers to describe the desired UI state, leaving React to handle the underlying updates efficiently. React's ecosystem, including tools like React Router and Redux, along with its strong community support, makes it a cornerstone of modern web development.",
+        "quiz": [
+          {
+            "question": "What is React primarily used for?",
+            "options": ["Backend development", "Building user interfaces", "Database management", "Mobile app development"],
+            "answer": 1
+          },
+          {
+            "question": "Who developed React?",
+            "options": ["Google", "Microsoft", "Meta AI", "Amazon"],
+            "answer": 2
+          },
+          {
+            "question": "What is the virtual DOM in React?",
+            "options": ["A database", "A lightweight copy of the real DOM", "A CSS framework", "A server-side rendering tool"],
+            "answer": 1
+          },
+          {
+            "question": "What type of applications is React best suited for?",
+            "options": ["Multi-page apps", "Single-page apps", "Desktop apps", "Embedded systems"],
+            "answer": 1
+          },
+          {
+            "question": "What makes React's approach declarative?",
+            "options": ["It uses loops for rendering", "It describes what the UI should look like", "It directly manipulates the DOM", "It avoids JavaScript"],
+            "answer": 1
+          }
+        ],
+        "practice": {
+          "question": "Create a simple React component that displays 'Hello, World!'",
+          "solution": "function HelloWorld() { return <div>Hello, World!</div>; }",
+          "steps": [
+            "Define a functional component named `HelloWorld` using a JavaScript function.",
+            "Use the `return` statement to output a `<div>` element containing the text 'Hello, World!'.",
+            "Ensure the component uses proper JSX syntax for rendering.",
+            "Export the component with `export default HelloWorld;` to make it reusable in other parts of the application."
+          ]
+        }
+      },
+      {
+        "chapter": 2,
+        "title": "Components and Props",
+        "content": "Components are the fundamental building blocks of React applications, enabling developers to create modular, reusable UI elements. Components can be either functional (simple JavaScript functions) or class-based (using ES6 classes), with functional components being preferred in modern React due to their conciseness and compatibility with hooks. Props, short for properties, are read-only inputs passed from parent to child components, allowing dynamic data rendering. Props are immutable within the receiving component, ensuring predictable data flow and preventing unintended side effects. By composing components hierarchically, developers can build complex UIs from smaller, manageable pieces, enhancing code maintainability and scalability. Props also support passing functions, enabling communication between components, such as callback handlers for user interactions.",
+        "quiz": [
+          {
+            "question": "What are props in React?",
+            "options": ["State variables", "Component properties", "Event handlers", "DOM elements"],
+            "answer": 1
+          },
+          {
+            "question": "Can a component modify its own props?",
+            "options": ["Yes", "No", "Only in class components", "Only with hooks"],
+            "answer": 1
+          },
+          {
+            "question": "What is a functional component?",
+            "options": ["A component with state", "A JavaScript function", "A component with lifecycle methods", "A backend service"],
+            "answer": 1
+          },
+          {
+            "question": "How are props passed to a component?",
+            "options": ["As attributes", "As global variables", "As state", "As CSS classes"],
+            "answer": 0
+          },
+          {
+            "question": "What is a benefit of component reusability?",
+            "options": ["Increased complexity", "Reduced code duplication", "Slower rendering", "Less testing"],
+            "answer": 1
+          }
+        ],
+        "practice": {
+          "question": "Create a component that accepts a name prop and displays a greeting.",
+          "solution": "function Greeting({ name }) { return <div>Hello, {name}!</div>; }",
+          "steps": [
+            "Define a functional component named `Greeting` that accepts a `props` object.",
+            "Use destructuring to extract the `name` prop directly in the function parameter.",
+            "Return a `<div>` element that displays 'Hello, ' followed by the value of the `name` prop.",
+            "Export the component with `export default Greeting;` for use in other components."
+          ]
+        }
+      },
+      {
+        "chapter": 3,
+        "title": "State and Lifecycle",
+        "content": "State in React represents mutable data managed within a component, enabling dynamic and interactive UIs. Unlike props, which are passed from parent components, state is local and controlled by the component itself. In functional components, the `useState` hook provides a simple way to manage state, while class components use `this.state` and `this.setState`. Lifecycle methods, such as `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` in class components, or the `useEffect` hook in functional components, allow developers to perform actions at specific points in a component’s lifecycle, such as fetching data or cleaning up resources. Proper state management ensures components respond to user inputs and external changes efficiently, while lifecycle methods handle side effects like API calls or DOM updates, keeping the application robust and performant.",
+        "quiz": [
+          {
+            "question": "Which hook is used to manage state in functional components?",
+            "options": ["useEffect", "useState", "useContext", "useReducer"],
+            "answer": 1
+          },
+          {
+            "question": "What is the purpose of useEffect?",
+            "options": ["Manage state", "Handle side effects", "Render components", "Pass props"],
+            "answer": 1
+          },
+          {
+            "question": "Can state be changed directly?",
+            "options": ["Yes", "No, use setState or hooks", "Only in class components", "Only with props"],
+            "answer": 1
+          },
+          {
+            "question": "What does componentDidMount do in class components?",
+            "options": ["Renders the UI", "Runs after component is added to DOM", "Handles props", "Updates state"],
+            "answer": 1
+          },
+          {
+            "question": "Why is state important in React?",
+            "options": ["It makes components static", "It enables dynamic behavior", "It replaces props", "It handles routing"],
+            "answer": 1
+          }
+        ],
+        "practice": {
+          "question": "Create a counter component with increment and decrement buttons.",
+          "solution": "function Counter() { const [count, setCount] = React.useState(0); return <div><button onClick={() => setCount(count - 1)}>-</button><span>{count}</span><button onClick={() => setCount(count + 1)}>+</button></div>; }",
+          "steps": [
+            "Create a functional component named `Counter`.",
+            "Use the `useState` hook to initialize a `count` state variable with a default value of 0.",
+            "Return a `<div>` containing two buttons and a `<span>` to display the current `count`.",
+            "Add an `onClick` event to the first button to call `setCount(count - 1)` for decrementing.",
+            "Add an `onClick` event to the second button to call `setCount(count + 1)` for incrementing.",
+            "Export the component with `export default Counter;`."
+          ]
+        }
+      },
+      {
+        "chapter": 4,
+        "title": "Handling Events",
+        "content": "React handles user interactions, such as clicks, form inputs, or keyboard events, through a system of synthetic events that provide a consistent, cross-browser interface. Event handlers are attached to elements using camelCase attributes like `onClick`, `onChange`, or `onKeyDown`. These handlers are typically defined as functions within the component, and React’s synthetic events wrap native browser events to ensure compatibility and performance. By leveraging the virtual DOM, React optimizes event handling, avoiding manual DOM listener management. This declarative approach allows developers to focus on the logic of what happens when an event occurs, making code more readable and maintainable, especially in complex applications with frequent user interactions.",
+        "quiz": [
+          {
+            "question": "How do you handle a click event in React?",
+            "options": ["addEventListener", "onClick", "onChange", "clickHandler"],
+            "answer": 1
+          },
+          {
+            "question": "What are synthetic events in React?",
+            "options": ["Native DOM events", "Cross-browser event wrappers", "CSS animations", "State updates"],
+            "answer": 1
+          },
+          {
+            "question": "How are event handlers typically defined?",
+            "options": ["As strings", "As functions", "As objects", "As classes"],
+            "answer": 1
+          },
+          {
+            "question": "What does onChange handle?",
+            "options": ["Button clicks", "Form input changes", "Page navigation", "State updates"],
+            "answer": 1
+          },
+          {
+            "question": "Why is React’s event system efficient?",
+            "options": ["It uses the real DOM", "It leverages the virtual DOM", "It avoids JavaScript", "It uses CSS"],
+            "answer": 1
+          }
+        ],
+        "practice": {
+          "question": "Create a button that alerts 'Clicked!' when pressed.",
+          "solution": "function Button() { return <button onClick={() => alert('Clicked!')}>Click Me</button>; }",
+          "steps": [
+            "Define a functional component named `Button`.",
+            "Return a `<button>` element with the text 'Click Me'.",
+            "Add an `onClick` event handler that calls the `alert` function with the message 'Clicked!'.",
+            "Export the component with `export default Button;`."
+          ]
+        }
+      },
+      {
+        "chapter": 5,
+        "title": "Conditional Rendering",
+        "content": "Conditional rendering in React allows developers to display or hide UI elements based on specific conditions, such as user authentication status or application state. This is achieved using JavaScript constructs like `if` statements, ternary operators (`?:`), or logical operators (`&&`, `||`). For example, a component might show a welcome message for logged-in users or a login prompt for others. Conditional rendering integrates seamlessly with React’s JSX syntax, leveraging JavaScript’s flexibility to avoid specialized templating languages. This approach enables dynamic, responsive UIs while keeping logic clear and maintainable, making it ideal for handling scenarios like toggling visibility or rendering different components based on state.",
+        "quiz": [
+          {
+            "question": "Which operator is commonly used for conditional rendering?",
+            "options": ["&&", "||", "!", "?"],
+            "answer": 0
+          },
+          {
+            "question": "What does conditional rendering control?",
+            "options": ["State updates", "UI visibility", "Event handlers", "Prop values"],
+            "answer": 1
+          },
+          {
+            "question": "Can you use if statements in JSX?",
+            "options": ["Yes, directly", "No, only outside JSX", "Only with hooks", "Only in class components"],
+            "answer": 1
+          },
+          {
+            "question": "What is a ternary operator used for in React?",
+            "options": ["Looping", "Conditional rendering", "Event handling", "State management"],
+            "answer": 1
+          },
+          {
+            "question": "Why is conditional rendering useful?",
+            "options": ["It speeds up rendering", "It makes UI dynamic", "It replaces props", "It handles routing"],
+            "answer": 1
+          }
+        ],
+        "practice": {
+          "question": "Create a component that shows a message only if a user is logged in.",
+          "solution": "function Message({ isLoggedIn }) { return isLoggedIn && <div>Welcome back!</div>; }",
+          "steps": [
+            "Create a functional component named `Message` that accepts an `isLoggedIn` prop.",
+            "Use the logical `&&` operator to render a `<div>` with the text 'Welcome back!' only if `isLoggedIn` is true.",
+            "Ensure the component returns nothing (implicitly `null`) if `isLoggedIn` is false.",
+            "Export the component with `export default Message;`."
+          ]
+        }
+      },
+      {
+        "chapter": 6,
+        "title": "Lists and Keys",
+        "content": "Lists in React are rendered by mapping over arrays to generate UI elements dynamically, typically using the JavaScript `map` method. Each list item requires a unique `key` prop, which helps React optimize rendering by identifying which items have changed, been added, or removed. Keys should ideally be stable, unique identifiers, such as database IDs, rather than array indices, to prevent issues during list reordering or updates. This approach ensures efficient DOM updates and prevents rendering errors in dynamic lists, such as user lists, product catalogs, or task items. Properly managing lists and keys is crucial for performance and correctness in React applications.",
+        "quiz": [
+          {
+            "question": "What attribute is used to uniquely identify list items?",
+            "options": ["id", "key", "index", "ref"],
+            "answer": 1
+          },
+          {
+            "question": "What method is commonly used to render lists?",
+            "options": ["forEach", "map", "filter", "reduce"],
+            "answer": 1
+          },
+          {
+            "question": "Why should keys be unique?",
+            "options": ["To style elements", "To improve rendering efficiency", "To handle events", "To manage state"],
+            "answer": 1
+          },
+          {
+            "question": "Is it good practice to use array indices as keys?",
+            "options": ["Yes, always", "No, if list order changes", "Only in small lists", "Only in static lists"],
+            "answer": 1
+          },
+          {
+            "question": "What happens if keys are not unique?",
+            "options": ["Faster rendering", "Incorrect updates", "No effect", "Syntax error"],
+            "answer": 1
+          }
+        ],
+        "practice": {
+          "question": "Render a list of names from an array.",
+          "solution": "function NameList({ names }) { return <ul>{names.map((name, index) => <li key={index}>{name}</li>)}</ul>; }",
+          "steps": [
+            "Define a functional component named `NameList` that accepts a `names` array prop.",
+            "Use the `map` method to iterate over the `names` array, creating an `<li>` element for each name.",
+            "Assign a `key` prop to each `<li>` using the array index (or a unique ID if available).",
+            "Wrap the list items in a `<ul>` element for proper HTML structure.",
+            "Export the component with `export default NameList;`."
+          ]
+        }
+      },
+      {
+        "chapter": 7,
+        "title": "Forms in React",
+        "content": "Forms in React are typically managed using controlled components, where input values are tied to component state via the `value` and `onChange` attributes. This approach ensures that the form’s state is the single source of truth, enabling predictable behavior, validation, and dynamic updates. Uncontrolled components, which rely on refs to access form data, are less common but useful for simpler forms or integrating with non-React libraries. React’s form handling eliminates manual DOM manipulation, allowing developers to manage user input, handle submissions, and implement features like real-time validation or conditional fields using JavaScript logic within the component.",
+        "quiz": [
+          {
+            "question": "What makes a form input controlled?",
+            "options": ["Using value and onChange", "Using ref", "Using id", "Using className"],
+            "answer": 0
+          },
+          {
+            "question": "What does onChange do in a controlled input?",
+            "options": ["Submits the form", "Updates state", "Styles the input", "Fetches data"],
+            "answer": 1
+          },
+          {
+            "question": "What is an uncontrolled component?",
+            "options": ["A component without state", "A component using refs", "A component without props", "A component with hooks"],
+            "answer": 1
+          },
+          {
+            "question": "Why use controlled components?",
+            "options": ["To avoid state", "To synchronize input with state", "To simplify forms", "To replace refs"],
+            "answer": 1
+          },
+          {
+            "question": "How can you validate form input in React?",
+            "options": ["Using CSS", "Using state and logic", "Using DOM queries", "Using templates"],
+            "answer": 1
+          }
+        ],
+        "practice": {
+          "question": "Create a controlled input that updates state.",
+          "solution": "function Form() { const [value, setValue] = React.useState(''); return <input value={value} onChange={e => setValue(e.target.value)} />; }",
+          "steps": [
+            "Create a functional component named `Form`.",
+            "Use the `useState` hook to initialize a `value` state variable with an empty string.",
+            "Return an `<input>` element with its `value` attribute bound to the `value` state.",
+            "Add an `onChange` event handler to update the `value` state with the input’s current value.",
+            "Export the component with `export default Form;`."
+          ]
+        }
+      },
+      {
+        "chapter": 8,
+        "title": "Hooks Overview",
+        "content": "Hooks, introduced in React 16.8, allow functional components to manage state, side effects, and other React features without using class components. The `useState` hook handles local state, while `useEffect` manages side effects like data fetching or subscriptions. Other hooks, such as `useContext`, `useReducer`, and `useMemo`, provide additional functionality for accessing context, managing complex state logic, or optimizing performance. Hooks simplify component logic, reduce boilerplate, and promote reusability by enabling developers to extract stateful logic into custom hooks. This modern approach has largely replaced class components, making React code more concise and easier to maintain.",
+        "quiz": [
+          {
+            "question": "Which hook handles side effects?",
+            "options": ["useState", "useEffect", "useContext", "useMemo"],
+            "answer": 1
+          },
+          {
+            "question": "What does useState return?",
+            "options": ["A function", "A state value and setter", "A context object", "An effect callback"],
+            "answer": 1
+          },
+          {
+            "question": "When was the Hooks feature introduced?",
+            "options": ["React 16.0", "React 16.8", "React 17.0", "React 18.0"],
+            "answer": 1
+          },
+          {
+            "question": "What is a custom hook?",
+            "options": ["A built-in React hook", "A reusable function with hook logic", "A class component", "A CSS utility"],
+            "answer": 1
+          },
+          {
+            "question": "Why are hooks preferred over class components?",
+            "options": ["They are faster", "They simplify code", "They replace JSX", "They handle routing"],
+            "answer": 1
+          }
+        ],
+        "practice": {
+          "question": "Fetch data using useEffect and display it.",
+          "solution": "function Data() { const [data, setData] = React.useState(null); React.useEffect(() => { fetch('/api').then(res => res.json()).then(setData); }, []); return <div>{data}</div>; }",
+          "steps": [
+            "Create a functional component named `Data`.",
+            "Use the `useState` hook to initialize a `data` state variable with a default value of `null`.",
+            "Use the `useEffect` hook with an empty dependency array to fetch data from '/api' when the component mounts.",
+            "Parse the response as JSON and update the `data` state using `setData`.",
+            "Return a `<div>` element that displays the `data` (or nothing if `data` is `null`).",
+            "Export the component with `export default Data;`."
+          ]
+        }
+      },
+      {
+        "chapter": 9,
+        "title": "Routing with React Router",
+        "content": "React Router is a library that enables client-side navigation in single-page applications, allowing users to move between different views without full page reloads. It uses components like `BrowserRouter`, `Route`, and `Link` to define routes and navigation links. The `Routes` component matches the current URL to a specific `Route`, rendering the corresponding component. React Router supports dynamic routing, nested routes, and route parameters, making it ideal for building complex applications with multiple pages or views. Its declarative approach aligns with React’s philosophy, providing a seamless way to manage navigation and URL state in modern web applications.",
+        "quiz": [
+          {
+            "question": "Which component defines a route?",
+            "options": ["Link", "Route", "NavLink", "Router"],
+            "answer": 1
+          },
+          {
+            "question": "What does BrowserRouter do?",
+            "options": ["Renders components", "Handles client-side routing", "Fetches data", "Manages state"],
+            "answer": 1
+          },
+          {
+            "question": "What is the purpose of the Link component?",
+            "options": ["Define routes", "Navigate between routes", "Fetch data", "Style the UI"],
+            "answer": 1
+          },
+          {
+            "question": "How are route parameters accessed?",
+            "options": ["Using useState", "Using useParams", "Using useEffect", "Using useContext"],
+            "answer": 1
+          },
+          {
+            "question": "What does the Routes component do?",
+            "options": ["Matches URLs to components", "Creates links", "Handles events", "Manages state"],
+            "answer": 0
+          }
+        ],
+        "practice": {
+          "question": "Create a basic route setup with two pages.",
+          "solution": "import { BrowserRouter, Route, Routes } from 'react-router-dom'; function App() { return <BrowserRouter><Routes><Route path=\"/\" element={<Home />} /><Route path=\"/about\" element={<About />} /></Routes></BrowserRouter>; }",
+          "steps": [
+            "Import `BrowserRouter`, `Route`, and `Routes` from 'react-router-dom'.",
+            "Define a functional component named `App`.",
+            "Wrap the routing logic in a `<BrowserRouter>` component.",
+            "Use the `<Routes>` component to define route mappings.",
+            "Add a `<Route>` for the home page (`path=\"/\"`) that renders a `Home` component.",
+            "Add a `<Route>` for the about page (`path=\"/about\"`) that renders an `About` component.",
+            "Export the component with `export default App;`."
+          ]
+        }
+      },
+      {
+        "chapter": 10,
+        "title": "State Management with Context",
+        "content": "React Context provides a way to share state across components without passing props through every level of the component tree, a problem known as prop drilling. The `createContext` function creates a context object, which is used with a `Provider` to supply data and a `Consumer` or `useContext` hook to access it. Context is ideal for global state, such as user authentication or theme settings, that multiple components need to access. While Context simplifies state sharing, it should be used judiciously to avoid overcomplicating the application. For more complex state management, libraries like Redux or MobX can be integrated with React Context for enhanced functionality.",
+        "quiz": [
+          {
+            "question": "What does useContext hook do?",
+            "options": ["Manages state", "Fetches data", "Accesses context", "Handles routing"],
+            "answer": 2
+          },
+          {
+            "question": "What problem does Context solve?",
+            "options": ["Slow rendering", "Prop drilling", "Event handling", "Routing"],
+            "answer": 1
+          },
+          {
+            "question": "What component provides context data?",
+            "options": ["Consumer", "Provider", "Router", "State"],
+            "answer": 1
+          },
+          {
+            "question": "When should you use Context?",
+            "options": ["For all state", "For global state", "For local state", "For styling"],
+            "answer": 1
+          },
+          {
+            "question": "What is a limitation of Context?",
+            "options": ["It’s slow", "It’s complex for simple state", "It replaces hooks", "It requires classes"],
+            "answer": 1
+          }
+        ],
+        "practice": {
+          "question": "Create a context to share user data.",
+          "solution": "const UserContext = React.createContext(); function App() { return <UserContext.Provider value={{ name: 'User' }}><Child /></UserContext.Provider>; } function Child() { const user = React.useContext(UserContext); return <div>{user.name}</div>; }",
+          "steps": [
+            "Create a context object named `UserContext` using `React.createContext()`.",
+            "Define an `App` component that wraps a `Child` component in a `<UserContext.Provider>`.",
+            "Pass an object with a `name` property (e.g., `{ name: 'User' }`) as the `value` prop to the `Provider`.",
+            "Define a `Child` component that uses the `useContext` hook to access `UserContext`.",
+            "Render the `name` property from the context in a `<div>` element.",
+            "Export both components appropriately."
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "course": "nodejs",
+    "chapters": [
+      {
+        "chapter": 1,
+        "title": "Introduction to Node.js",
+        "content": "Node.js is a JavaScript runtime built on Chrome’s V8 engine, enabling server-side development with JavaScript. Unlike traditional JavaScript, which runs in browsers, Node.js allows developers to execute JavaScript outside the browser, making it suitable for building scalable, high-performance applications like web servers, APIs, and real-time systems. Its non-blocking, event-driven architecture handles concurrent requests efficiently, leveraging an event loop to manage asynchronous operations. Node.js is lightweight, cross-platform, and integrates seamlessly with modern tools and databases, making it a popular choice for full-stack development alongside frameworks like Express.",
+        "quiz": [
+          {
+            "question": "What is Node.js primarily used for?",
+            "options": ["Frontend development", "Server-side development", "Database management", "Mobile apps"],
+            "answer": 1
+          },
+          {
+            "question": "What engine powers Node.js?",
+            "options": ["SpiderMonkey", "V8", "Chakra", "JavaScriptCore"],
+            "answer": 1
+          },
+          {
+            "question": "What is Node.js’s architecture known for?",
+            "options": ["Blocking I/O", "Event-driven", "Thread-based", "Synchronous"],
+            "answer": 1
+          },
+          {
+            "question": "What does the event loop do in Node.js?",
+            "options": ["Manages state", "Handles asynchronous operations", "Renders UI", "Parses JSON"],
+            "answer": 1
+          },
+          {
+            "question": "What type of applications can Node.js build?",
+            "options": ["Web servers", "Desktop apps", "Embedded systems", "Browsers"],
+            "answer": 0
+          }
+        ],
+        "practice": {
+          "question": "Write a simple Node.js server that responds with 'Hello, World!'",
+          "solution": "const http = require('http'); http.createServer((req, res) => { res.end('Hello, World!'); }).listen(3000);",
+          "steps": [
+            "Import the `http` module using `require('http')`.",
+            "Create a server using `http.createServer()` with a callback that handles requests and responses.",
+            "In the callback, use `res.end('Hello, World!')` to send a response.",
+            "Make the server listen on port 3000 with `listen(3000)`.",
+            "Save the code in a file (e.g., `server.js`) and run it with `node server.js`."
+          ]
+        }
+      },
+      {
+        "chapter": 2,
+        "title": "Modules and NPM",
+        "content": "Node.js uses a modular system to organize code, allowing developers to split functionality into reusable, independent modules. The `require` function imports modules, while `module.exports` makes functions, objects, or values available to other files. NPM (Node Package Manager) is the default package manager for Node.js, providing access to thousands of open-source libraries and tools. Developers can install packages with `npm install`, manage dependencies in `package.json`, and publish their own modules to the NPM registry. This ecosystem enhances productivity by enabling code reuse and simplifying dependency management for complex applications.",
+        "quiz": [
+          {
+            "question": "What command installs a package in Node.js?",
+            "options": ["npm add", "npm install", "npm get", "npm fetch"],
+            "answer": 1
+          },
+          {
+            "question": "What is the purpose of module.exports?",
+            "options": ["Import modules", "Export code", "Run scripts", "Install packages"],
+            "answer": 1
+          },
+          {
+            "question": "What file manages dependencies in Node.js?",
+            "options": ["index.js", "package.json", "node_modules", "config.js"],
+            "answer": 1
+          },
+          {
+            "question": "What does require() do?",
+            "options": ["Exports a module", "Imports a module", "Runs a server", "Installs a package"],
+            "answer": 1
+          },
+          {
+            "question": "What is NPM?",
+            "options": ["A database", "A package manager", "A runtime", "A framework"],
+            "answer": 1
+          }
+        ],
+        "practice": {
+          "question": "Create a module that exports a greeting function.",
+          "solution": "module.exports = function(name) { return `Hello, ${name}!`; };",
+          "steps": [
+            "Create a new file (e.g., `greeting.js`).",
+            "Define a function that takes a `name` parameter and returns a greeting string using template literals.",
+            "Assign the function to `module.exports` to make it available for import.",
+            "Save the file and import it in another file using `require('./greeting')`.",
+            "Test the function by calling it with a name argument."
+          ]
+        }
+      },
+      {
+        "chapter": 3,
+        "title": "File System Operations",
+        "content": "The `fs` (file system) module in Node.js provides APIs for interacting with the file system, enabling operations like reading, writing, updating, and deleting files. Methods like `readFileSync` and `writeFile` support synchronous and asynchronous file handling, with asynchronous methods being preferred for performance in production. The module supports operations on files and directories, including creating directories, checking file existence, and reading directory contents. Proper error handling is crucial when working with the file system to manage issues like missing files or permission errors, ensuring robust applications.",
+        "quiz": [
+          {
+            "question": "Which module handles file operations?",
+            "options": ["http", "fs", "path", "url"],
+            "answer": 1
+          },
+          {
+            "question": "What does readFileSync do?",
+            "options": ["Reads a file asynchronously", "Reads a file synchronously", "Writes a file", "Deletes a file"],
+            "answer": 1
+          },
+          {
+            "question": "Why prefer asynchronous file methods?",
+            "options": ["They are simpler", "They are non-blocking", "They are synchronous", "They use less memory"],
+            "answer": 1
+          },
+          {
+            "question": "What module complements fs for file paths?",
+            "options": ["http", "url", "path", "events"],
+            "answer": 2
+          },
+          {
+            "question": "How do you handle file operation errors?",
+            "options": ["Using try/catch", "Using if/else", "Using loops", "Using props"],
+            "answer": 0
+          }
+        ],
+        "practice": {
+          "question": "Write code to read a file synchronously.",
+          "solution": "const fs = require('fs'); const data = fs.readFileSync('file.txt', 'utf8'); console.log(data);",
+          "steps": [
+            "Import the `fs` module using `require('fs')`.",
+            "Use `fs.readFileSync` to read the contents of a file named `file.txt`.",
+            "Specify `'utf8'` as the encoding to return the file contents as a string.",
+            "Log the file contents to the console using `console.log`.",
+            "Save the code in a file (e.g., `read.js`) and run it with `node read.js`."
+          ]
+        }
+      },
+      {
+        "chapter": 4,
+        "title": "Express Framework",
+        "content": "Express is a minimal and flexible web framework for Node.js, widely used for building RESTful APIs and web applications. It simplifies server-side development by providing a robust set of features, including routing, middleware, and HTTP utilities. Express allows developers to define routes for handling HTTP requests (GET, POST, etc.), process request data, and send responses in various formats, such as JSON or HTML. Its middleware system enables request preprocessing, such as parsing JSON or handling authentication, making it highly extensible. Express integrates seamlessly with databases and front-end frameworks, forming the backbone of the MEAN and MERN stacks.",
+        "quiz": [
+          {
+            "question": "What is Express used for?",
+            "options": ["Database queries", "Building APIs", "Frontend rendering", "File management"],
+            "answer": 1
+          },
+          {
+            "question": "What does app.get() define?",
+            "options": ["A POST route", "A GET route", "A middleware", "A database connection"],
+            "answer": 1
+          },
+          {
+            "question": "What is a feature of Express?",
+            "options": ["Native database support", "Routing", "Frontend rendering", "File compression"],
+            "answer": 1
+          },
+          {
+            "question": "How do you start an Express server?",
+            "options": ["app.start()", "app.listen()", "app.run()", "app.serve()"],
+            "answer": 1
+          },
+          {
+            "question": "What does Express simplify?",
+            "options": ["Frontend logic", "Server-side development", "Database queries", "CSS styling"],
+            "answer": 1
+          }
+        ],
+        "practice": {
+          "question": "Create a basic Express route.",
+          "solution": "const express = require('express'); const app = express(); app.get('/', (req, res) => res.send('Hello!')); app.listen(3000);",
+          "steps": [
+            "Import the `express` module using `require('express')`.",
+            "Create an Express application instance with `express()`.",
+            "Define a GET route for the root path (`/`) that sends 'Hello!' as the response.",
+            "Start the server on port 3000 using `app.listen(3000)`.",
+            "Save the code in a file (e.g., `app.js`) and run it with `node app.js`."
+          ]
+        }
+      },
+      {
+        "chapter": 5,
+        "title": "Middleware in Express",
+        "content": "Middleware functions in Express are functions that process HTTP requests before they reach route handlers. They have access to the request (`req`), response (`res`), and `next` function, allowing them to modify data, perform authentication, log requests, or pass control to the next middleware. Middleware can be applied globally to all routes or to specific routes, providing flexibility in handling tasks like parsing JSON, handling CORS, or logging. Express’s middleware system is a key feature for building modular, maintainable server-side applications, enabling developers to separate concerns like logging or error handling from core route logic.",
+        "quiz": [
+          {
+            "question": "What is middleware in Express?",
+            "options": ["A database", "A request processor", "A template engine", "A frontend library"],
+            "answer": 1
+          },
+          {
+            "question": "What does the next() function do?",
+            "options": ["Sends a response", "Calls the next middleware", "Parses JSON", "Handles errors"],
+            "answer": 1
+          },
+          {
+            "question": "How is middleware applied globally?",
+            "options": ["Using app.use()", "Using app.get()", "Using app.post()", "Using app.route()"],
+            "answer": 0
+          },
+          {
+            "question": "What is a common use of middleware?",
+            "options": ["Rendering HTML", "Parsing request bodies", "Connecting databases", "Styling pages"],
+            "answer": 1
+          },
+          {
+            "question": "Can middleware modify the request object?",
+            "options": ["Yes", "No", "Only responses", "Only routes"],
+            "answer": 0
+          }
+        ],
+        "practice": {
+          "question": "Create a middleware that logs requests.",
+          "solution": "function logger(req, res, next) { console.log(`${req.method} ${req.url}`); next(); }",
+          "steps": [
+            "Define a middleware function named `logger` that takes `req`, `res`, and `next` parameters.",
+            "Log the request method and URL using `console.log` and template literals.",
+            "Call `next()` to pass control to the next middleware or route handler.",
+            "Use the middleware in an Express app with `app.use(logger)`.",
+            "Test by running the server and making requests to see logs in the console."
+          ]
+        }
+      },
+      {
+        "chapter": 6,
+        "title": "RESTful APIs",
+        "content": "RESTful APIs in Node.js use HTTP methods (GET, POST, PUT, DELETE) to perform CRUD operations (Create, Read, Update, Delete) on resources. Express simplifies REST API development by providing routing and middleware for handling requests and responses. A RESTful API follows stateless, client-server architecture principles, using standard HTTP status codes (e.g., 200 for success, 404 for not found) and JSON for data exchange. Well-designed REST APIs are scalable, maintainable, and easy to integrate with front-end applications, making them a standard for modern web development.",
+        "quiz": [
+          {
+            "question": "Which HTTP method creates a resource?",
+            "options": ["GET", "POST", "PUT", "DELETE"],
+            "answer": 1
+          },
+          {
+            "question": "What does REST stand for?",
+            "options": ["Remote Execution Standard", "Representational State Transfer", "Resource State Transition", "Real-time System Test"],
+            "answer": 1
+          },
+          {
+            "question": "What format is commonly used in REST APIs?",
+            "options": ["XML", "JSON", "HTML", "CSV"],
+            "answer": 1
+          },
+          {
+            "question": "What does a 404 status code indicate?",
+            "options": ["Success", "Not Found", "Server Error", "Created"],
+            "answer": 1
+          },
+          {
+            "question": "What is a characteristic of REST APIs?",
+            "options": ["Stateful", "Stateless", "Synchronous only", "Browser-only"],
+            "answer": 1
+          }
+        ],
+        "practice": {
+          "question": "Create a POST route to add a user.",
+          "solution": "app.post('/users', (req, res) => { const user = req.body; res.status(201).json(user); });",
+          "steps": [
+            "In an Express app, define a POST route for the `/users` path.",
+            "Extract the user data from `req.body` (ensure body-parser middleware is used).",
+            "Send a response with status code 201 (Created) and the user data as JSON.",
+            "Test the route by sending a POST request with a JSON payload (e.g., using Postman).",
+            "Verify the response contains the user data and correct status code."
+          ]
+        }
+      },
+      {
+        "chapter": 7,
+        "title": "Asynchronous Programming",
+        "content": "Node.js excels at asynchronous programming, handling operations like file I/O, network requests, or database queries without blocking the main thread. It supports multiple paradigms: callbacks, promises, and `async/await`. Callbacks are traditional but can lead to callback hell, while promises provide a cleaner way to handle asynchronous results. The `async/await` syntax, built on promises, makes asynchronous code resemble synchronous code, improving readability and maintainability. Proper asynchronous programming ensures Node.js applications remain performant, especially under high concurrency, by leveraging the event loop to manage tasks efficiently.",
+        "quiz": [
+          {
+            "question": "Which keyword is used with async functions?",
+            "options": ["await", "then", "catch", "promise"],
+            "answer": 0
+          },
+          {
+            "question": "What is a promise in Node.js?",
+            "options": ["A synchronous function", "A way to handle async results", "A database query", "A middleware"],
+            "answer": 1
+          },
+          {
+            "question": "What problem do callbacks cause?",
+            "options": ["Slow performance", "Callback hell", "Memory leaks", "Syntax errors"],
+            "answer": 1
+          },
+          {
+            "question": "What does await do?",
+            "options": ["Pauses async function execution", "Runs code synchronously", "Handles errors", "Exports modules"],
+            "answer": 0
+          },
+          {
+            "question": "Why is async programming important in Node.js?",
+            "options": ["It simplifies code", "It enables non-blocking I/O", "It replaces synchronous code", "It manages state"],
+            "answer": 1
+          }
+        ],
+        "practice": {
+          "question": "Write an async function to fetch data.",
+          "solution": "async function fetchData() { const res = await fetch('https://api.example.com'); return res.json(); }",
+          "steps": [
+            "Define an async function named `fetchData` using the `async` keyword.",
+            "Use `await` with the `fetch` function to make an HTTP request to 'https://api.example.com'.",
+            "Store the response in a variable (`res`).",
+            "Use `await res.json()` to parse the response body as JSON.",
+            "Return the parsed data.",
+            "Handle errors using a `try/catch` block if needed."
+          ]
+        }
+      },
+      {
+        "chapter": 8,
+        "title": "Working with Databases",
+        "content": "Node.js integrates with various databases, both SQL (e.g., PostgreSQL, MySQL) and NoSQL (e.g., MongoDB), using libraries like Mongoose for MongoDB or Sequelize for SQL databases. Mongoose, an Object Data Modeling (ODM) library, simplifies MongoDB interactions by providing schemas, validation, and query-building tools. Node.js applications can perform CRUD operations, handle connections, and manage data efficiently. Database integration requires careful handling of asynchronous operations, connection pooling, and error management to ensure reliability and performance in production environments.",
+        "quiz": [
+          {
+            "question": "What is Mongoose used for?",
+            "options": ["HTTP requests", "MongoDB ODM", "File handling", "Authentication"],
+            "answer": 1
+          },
+          {
+            "question": "What does an ODM do?",
+            "options": ["Manages files", "Maps objects to database", "Handles routing", "Parses JSON"],
+            "answer": 1
+          },
+          {
+            "question": "Which database is Mongoose designed for?",
+            "options": ["MySQL", "MongoDB", "PostgreSQL", "SQLite"],
+            "answer": 1
+          },
+          {
+            "question": "What is a benefit of using Mongoose?",
+            "options": ["Faster queries", "Schema validation", "Smaller codebase", "Frontend rendering"],
+            "answer": 1
+          },
+          {
+            "question": "How are database operations typically handled in Node.js?",
+            "options": ["Synchronously", "Asynchronously", "Manually", "With templates"],
+            "answer": 1
+          }
+        ],
+        "practice": {
+          "question": "Define a simple Mongoose schema.",
+          "solution": "const mongoose = require('mongoose'); const Schema = mongoose.Schema; const userSchema = new Schema({ name: String });",
+          "steps": [
+            "Import the `mongoose` module using `require('mongoose')`.",
+            "Access the `Schema` constructor from Mongoose.",
+            "Define a `userSchema` with a `name` field of type `String`.",
+            "Save the schema in a variable for use in creating a Mongoose model.",
+            "Use the schema to create a model with `mongoose.model('User', userSchema)` if needed."
+          ]
+        }
+      },
+      {
+        "chapter": 9,
+        "title": "Authentication in Node.js",
+        "content": "Authentication in Node.js applications ensures secure access to resources, typically using JSON Web Tokens (JWT) for stateless authentication or session-based approaches. Libraries like `bcrypt` securely hash passwords, while `jsonwebtoken` generates and verifies tokens. A typical authentication flow involves hashing user passwords during registration, storing them securely, and issuing JWTs upon login for subsequent requests. Middleware can validate tokens to protect routes, ensuring only authorized users access sensitive endpoints. Proper authentication implementation prevents security vulnerabilities like unauthorized access or password leaks, making it critical for production applications.",
+        "quiz": [
+          {
+            "question": "What does bcrypt do?",
+            "options": ["Encrypts data", "Hashes passwords", "Generates tokens", "Manages sessions"],
+            "answer": 1
+          },
+          {
+            "question": "What is a JWT used for?",
+            "options": ["Storing passwords", "Authenticating users", "Parsing JSON", "Routing requests"],
+            "answer": 1
+          },
+          {
+            "question": "What does a secure authentication system prevent?",
+            "options": ["Slow performance", "Unauthorized access", "Code errors", "UI issues"],
+            "answer": 1
+          },
+          {
+            "question": "Which library generates JWTs?",
+            "options": ["express", "jsonwebtoken", "mongoose", "bcrypt"],
+            "answer": 1
+          },
+          {
+            "question": "Why hash passwords?",
+            "options": ["To speed up login", "To secure them", "To simplify storage", "To enable sessions"],
+            "answer": 1
+          }
+        ],
+        "practice": {
+          "question": "Hash a password using bcrypt.",
+          "solution": "const bcrypt = require('bcryptjs'); async function hashPassword(password) { const salt = await bcrypt.genSalt(10); return bcrypt.hash(password, salt); }",
+          "steps": [
+            "Import the `bcryptjs` library using `require('bcryptjs')`.",
+            "Define an async function named `hashPassword` that takes a `password` parameter.",
+            "Generate a salt with `bcrypt.genSalt(10)` for secure hashing.",
+            "Use `bcrypt.hash` to hash the password with the salt.",
+            "Return the hashed password.",
+            "Test by calling the function with a sample password."
+          ]
+        }
+      },
+      {
+        "chapter": 10,
+        "title": "Error Handling",
+        "content": "Effective error handling in Node.js ensures applications are robust and user-friendly, gracefully handling issues like invalid inputs, network failures, or database errors. Express provides middleware for centralized error handling, capturing errors from routes or other middleware. Using `try/catch` with `async/await` or promise `.catch()` methods is common for asynchronous code. Proper error handling involves returning meaningful HTTP status codes (e.g., 400 for bad requests, 500 for server errors) and user-friendly messages, while logging errors for debugging. This approach improves application reliability and maintainability, especially in production environments.",
+        "quiz": [
+          {
+            "question": "How do you catch errors in async functions?",
+            "options": ["try/catch", "if/else", "then/catch", "error event"],
+            "answer": 0
+          },
+          {
+            "question": "What is the purpose of error-handling middleware?",
+            "options": ["Parse JSON", "Handle errors centrally", "Define routes", "Serve static files"],
+            "answer": 1
+          },
+          {
+            "question": "What status code indicates a server error?",
+            "options": ["200", "400", "404", "500"],
+            "answer": 3
+          },
+          {
+            "question": "Why log errors in Node.js?",
+            "options": ["To style the UI", "To debug issues", "To speed up code", "To manage state"],
+            "answer": 1
+          },
+          {
+            "question": "What does a good error message provide?",
+            "options": ["User-friendly feedback", "CSS styles", "Database queries", "Routing logic"],
+            "answer": 0
+          }
+        ],
+        "practice": {
+          "question": "Create an error-handling middleware.",
+          "solution": "function errorHandler(err, req, res, next) { res.status(500).json({ error: err.message }); }",
+          "steps": [
+            "Define a middleware function named `errorHandler` with `err`, `req`, `res`, and `next` parameters.",
+            "Set the response status to 500 (server error) using `res.status(500)`.",
+            "Send a JSON response with the error message using `err.message`.",
+            "Use the middleware in an Express app with `app.use(errorHandler)`.",
+            "Test by throwing an error in a route and verifying the response."
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "course": "mongodb",
+    "chapters": [
+      {
+        "chapter": 1,
+        "title": "Introduction to MongoDB",
+        "content": "MongoDB is a leading NoSQL database that stores data in flexible, JSON-like documents, offering a schema-less design compared to traditional relational databases. This flexibility allows developers to store structured or unstructured data, making it ideal for applications with evolving requirements. MongoDB organizes data into collections of documents, where each document can have different fields. Its scalability, high performance, and support for features like replication and sharding make it suitable for modern web applications, big data, and real-time analytics. MongoDB’s query language is powerful, supporting complex operations like filtering, sorting, and aggregation.",
+        "quiz": [
+          {
+            "question": "What type of database is MongoDB?",
+            "options": ["Relational", "NoSQL", "Graph", "Key-value"],
+            "answer": 1
+          },
+          {
+            "question": "How does MongoDB store data?",
+            "options": ["In tables", "In JSON-like documents", "In graphs", "In key-value pairs"],
+            "answer": 1
+          },
+          {
+            "question": "What is a collection in MongoDB?",
+            "options": ["A single document", "A group of documents", "An index", "A query"],
+            "answer": 1
+          },
+          {
+            "question": "What is a benefit of MongoDB’s schema-less design?",
+            "options": ["Rigid structure", "Flexibility", "Slower queries", "Smaller storage"],
+            "answer": 1
+          },
+          {
+            "question": "What type of applications suits MongoDB?",
+            "options": ["Static websites", "Big data analytics", "Desktop apps", "Embedded systems"],
+            "answer": 1
+          }
+        ],
+        "practice": {
+          "question": "Write a MongoDB query to find all documents in a collection.",
+          "solution": "db.collection.find()",
+          "steps": [
+            "Access the MongoDB shell or a MongoDB client.",
+            "Use the `db` object to reference the database.",
+            "Call `find()` on a collection (e.g., `collection`) to retrieve all documents.",
+            "Optionally, chain `.pretty()` to format the output for readability.",
+            "Execute the query and verify the results."
+          ]
+        }
+      },
+      {
+        "chapter": 2,
+        "title": "CRUD Operations",
+        "content": "MongoDB supports Create, Read, Update, and Delete (CRUD) operations to manage data in collections. The `insertOne` and `insertMany` methods create new documents, `find` and `findOne` retrieve documents, `updateOne` and `updateMany` modify documents, and `deleteOne` and `deleteMany` remove documents. MongoDB’s flexible document model allows these operations to handle varied data structures efficiently. Queries can include filters, projections, and sorting to refine results. Understanding CRUD operations is essential for building data-driven applications, as they form the foundation of database interactions.",
+        "quiz": [
+          {
+            "question": "Which command inserts a document?",
+            "options": ["insertOne", "findOne", "updateOne", "deleteOne"],
+            "answer": 0
+          },
+          {
+            "question": "What does findOne return?",
+            "options": ["All documents", "A single document", "An index", "A collection"],
+            "answer": 1
+          },
+          {
+            "question": "Which method updates multiple documents?",
+            "options": ["updateOne", "updateMany", "replaceOne", "find"],
+            "answer": 1
+          },
+          {
+            "question": "What does deleteOne do?",
+            "options": ["Deletes all documents", "Deletes one document", "Updates a document", "Inserts a document"],
+            "answer": 1
+          },
+          {
+            "question": "What can you add to a find query?",
+            "options": ["Filters", "Styles", "Events", "Modules"],
+            "answer": 0
+          }
+        ],
+        "practice": {
+          "question": "Insert a document into a collection.",
+          "solution": "db.users.insertOne({ name: 'John', age: 30 })",
+          "steps": [
+            "Access the MongoDB shell or client.",
+            "Select the `users` collection using `db.users`.",
+            "Use `insertOne` to add a document with fields `name` and `age`.",
+            "Pass an object `{ name: 'John', age: 30 }` to `insertOne`.",
+            "Verify the insertion by checking the collection with `db.users.find()`."
+          ]
+        }
+      },
+      {
+        "chapter": 3,
+        "title": "Querying Documents",
+        "content": "MongoDB provides a rich query language to retrieve and filter documents from collections. Operators like `$eq`, `$gt`, `$lt`, `$in`, and `$ne` enable precise filtering, while methods like `find`, `sort`, and `limit` refine results. Queries can target specific fields, match nested documents, or use regular expressions for pattern matching. Efficient querying is critical for performance, especially in large datasets, and MongoDB’s flexibility allows developers to handle complex data retrieval tasks, such as searching for users by age or status, with ease.",
+        "quiz": [
+          {
+            "question": "Which operator matches documents with a specific value?",
+            "options": ["$eq", "$gt", "$lt", "$ne"],
+            "answer": 0
+          },
+          {
+            "question": "What does $gt stand for?",
+            "options": ["Greater than", "Less than", "Equal to", "Not equal"],
+            "answer": 0
+          },
+          {
+            "question": "What method sorts query results?",
+            "options": ["find", "sort", "limit", "skip"],
+            "answer": 1
+          },
+          {
+            "question": "How do you query nested fields?",
+            "options": ["Using dot notation", "Using arrays", "Using loops", "Using indexes"],
+            "answer": 0
+          },
+          {
+            "question": "What does limit do in a query?",
+            "options": ["Filters fields", "Restricts result count", "Sorts results", "Skips documents"],
+            "answer": 1
+          }
+        ],
+        "practice": {
+          "question": "Query documents where age is greater than 25.",
+          "solution": "db.users.find({ age: { $gt: 25 } })",
+          "steps": [
+            "Access the MongoDB shell or client.",
+            "Select the `users` collection with `db.users`.",
+            "Use the `find` method with a query object `{ age: { $gt: 25 } }`.",
+            "Use the `$gt` operator to filter documents where `age` is greater than 25.",
+            "Execute the query and verify the results with `.pretty()`."
+          ]
+        }
+      },
+      {
+        "chapter": 4,
+        "title": "Indexes",
+        "content": "Indexes in MongoDB improve query performance by allowing efficient data retrieval, especially for frequently queried fields. The `createIndex` method creates indexes on specified fields, supporting types like single-field, compound, or text indexes. Indexes reduce the time needed for operations like filtering or sorting but require additional storage and can slow down write operations. Proper index management is crucial for optimizing database performance, particularly in large-scale applications where query speed is critical. Developers must balance the benefits of indexing with the overhead of maintaining them.",
+        "quiz": [
+          {
+            "question": "What does createIndex do?",
+            "options": ["Deletes documents", "Creates an index", "Updates documents", "Queries data"],
+            "answer": 1
+          },
+          {
+            "question": "What is a benefit of indexing?",
+            "options": ["Slower queries", "Faster queries", "Smaller storage", "Simpler schemas"],
+            "answer": 1
+          },
+          {
+            "question": "What is a single-field index?",
+            "options": ["An index on multiple fields", "An index on one field", "A text index", "A compound index"],
+            "answer": 1
+          },
+          {
+            "question": "What is a drawback of indexes?",
+            "options": ["Faster writes", "Increased storage", "Slower reads", "No maintenance"],
+            "answer": 1
+          },
+          {
+            "question": "Which operation benefits most from indexes?",
+            "options": ["Inserting", "Querying", "Deleting", "Updating"],
+            "answer": 1
+          }
+        ],
+        "practice": {
+          "question": "Create an index on the name field.",
+          "solution": "db.users.createIndex({ name: 1 })",
+          "steps": [
+            "Access the MongoDB shell or client.",
+            "Select the `users` collection with `db.users`.",
+            "Use `createIndex` to create an index on the `name` field.",
+            "Pass `{ name: 1 }` to create an ascending index (use `-1` for descending).",
+            "Verify the index with `db.users.getIndexes()`."
+          ]
+        }
+      },
+      {
+        "chapter": 5,
+        "title": "Aggregation Pipeline",
+        "content": "MongoDB’s aggregation pipeline processes data through a series of stages, such as `$match`, `$group`, `$sort`, and `$project`, to transform and analyze documents. Each stage performs a specific operation, like filtering, grouping, or reshaping data, enabling complex queries like calculating averages or grouping by categories. The pipeline is highly flexible, supporting tasks like data analytics, reporting, or generating summaries. Optimized pipelines improve performance by reducing the data processed in each stage, making them a powerful tool for data-driven applications.",
+        "quiz": [
+          {
+            "question": "Which stage filters documents?",
+            "options": ["$group", "$match", "$sort", "$project"],
+            "answer": 1
+          },
+          {
+            "question": "What does $group do?",
+            "options": ["Filters data", "Groups documents", "Sorts results", "Projects fields"],
+            "answer": 1
+          },
+          {
+            "question": "What is the aggregation pipeline used for?",
+            "options": ["Deleting data", "Transforming data", "Indexing data", "Validating data"],
+            "answer": 1
+          },
+          {
+            "question": "Which stage reshapes documents?",
+            "options": ["$match", "$group", "$project", "$sort"],
+            "answer": 2
+          },
+          {
+            "question": "How can you optimize an aggregation pipeline?",
+            "options": ["Add more stages", "Reduce processed data", "Remove indexes", "Use synchronous queries"],
+            "answer": 1
+          }
+        ],
+        "practice": {
+          "question": "Write an aggregation to group users by age.",
+          "solution": "db.users.aggregate([{ $group: { _id: '$age', count: { $sum: 1 } } }])",
+          "steps": [
+            "Access the MongoDB shell or client.",
+            "Select the `users` collection with `db.users`.",
+            "Use the `aggregate` method with an array of stages.",
+            "Add a `$group` stage to group documents by the `age` field (`_id: '$age'`).",
+            "Use `$sum: 1` to count documents in each group.",
+            "Execute and verify the results with `.pretty()`."
+          ]
+        }
+      },
+      {
+        "chapter": 6,
+        "title": "Data Modeling",
+        "content": "Data modeling in MongoDB involves designing how data is structured within collections, using embedded documents for related data or references for normalized relationships. Embedded documents store related data within a single document, improving read performance for hierarchical data, while references link documents across collections, suitable for large or frequently updated datasets. MongoDB’s schema-less design allows flexibility but requires careful planning to optimize query performance and storage. Effective data modeling balances application requirements, query patterns, and scalability, ensuring efficient data retrieval and maintenance.",
+        "quiz": [
+          {
+            "question": "What is an embedded document?",
+            "options": ["A separate collection", "A document within a document", "An index", "A query"],
+            "answer": 1
+          },
+          {
+            "question": "When should you use references?",
+            "options": ["For small datasets", "For frequently updated data", "For simple queries", "For static data"],
+            "answer": 1
+          },
+          {
+            "question": "What is a benefit of embedded documents?",
+            "options": ["Slower reads", "Faster reads", "Smaller storage", "Simpler updates"],
+            "answer": 1
+          },
+          {
+            "question": "What does MongoDB’s schema-less design allow?",
+            "options": ["Rigid schemas", "Flexible data structures", "Fixed fields", "Synchronous queries"],
+            "answer": 1
+          },
+          {
+            "question": "What should data modeling optimize?",
+            "options": ["Query performance", "Code complexity", "Frontend rendering", "Event handling"],
+            "answer": 0
+          }
+        ],
+        "practice": {
+          "question": "Create a document with an embedded address.",
+          "solution": "db.users.insertOne({ name: 'John', address: { city: 'New York', zip: '10001' } })",
+          "steps": [
+            "Access the MongoDB shell or client.",
+            "Select the `users` collection with `db.users`.",
+            "Use `insertOne` to add a document with a `name` field and an embedded `address` object.",
+            "Include `city` and `zip` fields in the `address` object.",
+            "Verify the insertion with `db.users.find().pretty()`."
+          ]
+        }
+      },
+      {
+        "chapter": 7,
+        "title": "Connecting MongoDB with Node.js",
+        "content": "Node.js connects to MongoDB using libraries like the MongoDB Node.js driver or Mongoose, an Object Data Modeling (ODM) library. Mongoose simplifies interactions by providing schemas, validation, and query-building tools, abstracting low-level MongoDB operations. Developers can connect to a MongoDB database, perform CRUD operations, and handle asynchronous queries using promises or `async/await`. Connection management, such as handling connection pools and errors, is critical for reliable applications. This integration enables full-stack JavaScript applications, combining Node.js’s server-side capabilities with MongoDB’s flexible data storage.",
+        "quiz": [
+          {
+            "question": "What is Mongoose?",
+            "options": ["A query builder", "An ODM", "A database", "A frontend library"],
+            "answer": 1
+          },
+          {
+            "question": "What does Mongoose simplify?",
+            "options": ["Frontend rendering", "MongoDB interactions", "File operations", "Routing"],
+            "answer": 1
+          },
+          {
+            "question": "How are MongoDB queries typically handled in Node.js?",
+            "options": ["Synchronously", "Asynchronously", "Manually", "With templates"],
+            "answer": 1
+          },
+          {
+            "question": "What is a benefit of using Mongoose?",
+            "options": ["Faster connections", "Schema validation", "Smaller database", "Simpler routing"],
+            "answer": 1
+          },
+          {
+            "question": "What is needed for reliable MongoDB connections?",
+            "options": ["Connection pooling", "Static schemas", "Synchronous queries", "CSS styling"],
+            "answer": 0
+          }
+        ],
+        "practice": {
+          "question": "Connect to MongoDB using Mongoose.",
+          "solution": "const mongoose = require('mongoose'); mongoose.connect('mongodb://localhost/db');",
+          "steps": [
+            "Import the `mongoose` module using `require('mongoose')`.",
+            "Use `mongoose.connect` to establish a connection to a MongoDB database at 'mongodb://localhost/db'.",
+            "Ensure the MongoDB server is running locally.",
+            "Handle connection errors using a `.catch()` or `try/catch` block if needed.",
+            "Test the connection by logging the result or performing a query."
+          ]
+        }
+      },
+      {
+        "chapter": 8,
+        "title": "Schema Validation",
+        "content": "MongoDB supports schema validation to enforce data structure and integrity, ensuring documents meet specific requirements before being inserted or updated. Using the `$jsonSchema` operator in a collection’s validator, developers can define rules for required fields, data types, or value constraints. Validation is applied when creating or modifying documents, rejecting operations that violate the schema. This feature bridges the gap between MongoDB’s schema-less flexibility and the need for consistent data in applications, improving reliability and reducing errors in data-driven systems.",
+        "quiz": [
+          {
+            "question": "How do you enforce schema validation?",
+            "options": ["createIndex", "validator", "$jsonSchema", "aggregate"],
+            "answer": 2
+          },
+          {
+            "question": "What does schema validation ensure?",
+            "options": ["Faster queries", "Data integrity", "Smaller storage", "Simpler queries"],
+            "answer": 1
+          },
+          {
+            "question": "When is validation applied?",
+            "options": ["During reads", "During inserts/updates", "During indexing", "During aggregation"],
+            "answer": 1
+          },
+          {
+            "question": "What operator defines validation rules?",
+            "options": ["$match", "$jsonSchema", "$group", "$sort"],
+            "answer": 1
+          },
+          {
+            "question": "Why use schema validation?",
+            "options": ["To slow down writes", "To ensure consistent data", "To replace indexes", "To simplify queries"],
+            "answer": 1
+          }
+        ],
+        "practice": {
+          "question": "Create a collection with required name field.",
+          "solution": "db.createCollection('users', { validator: { $jsonSchema: { required: ['name'] } } })",
+          "steps": [
+            "Access the MongoDB shell or client.",
+            "Use `db.createCollection` to create a `users` collection.",
+            "Add a `validator` option with a `$jsonSchema` object.",
+            "Specify `required: ['name']` to enforce a required `name` field.",
+            "Test by inserting documents with and without the `name` field to verify validation."
+          ]
+        }
+      },
+      {
+        "chapter": 9,
+        "title": "Replication",
+        "content": "Replication in MongoDB ensures data availability and redundancy by maintaining multiple copies of data across servers in a replica set. A replica set consists of a primary node that handles writes and secondary nodes that replicate the primary’s data for reads and failover. If the primary fails, an election process promotes a secondary to primary, ensuring high availability. Replication supports disaster recovery, read scaling, and data redundancy, making it essential for production environments. Configuring and monitoring replica sets requires careful planning to balance performance and reliability.",
+        "quiz": [
+          {
+            "question": "What is a replica set?",
+            "options": ["A single database", "A group of MongoDB servers", "An index", "A query"],
+            "answer": 1
+          },
+          {
+            "question": "What does the primary node handle?",
+            "options": ["Reads only", "Writes", "Indexes", "Backups"],
+            "answer": 1
+          },
+          {
+            "question": "What happens if the primary node fails?",
+            "options": ["Data is lost", "A secondary becomes primary", "Queries stop", "Indexes are rebuilt"],
+            "answer": 1
+          },
+          {
+            "question": "What is a benefit of replication?",
+            "options": ["Faster writes", "High availability", "Smaller storage", "Simpler queries"],
+            "answer": 1
+          },
+          {
+            "question": "What does replication support?",
+            "options": ["Synchronous queries", "Disaster recovery", "Frontend rendering", "Event handling"],
+            "answer": 1
+          }
+        ],
+        "practice": {
+          "question": "Initialize a replica set.",
+          "solution": "rs.initiate()",
+          "steps": [
+            "Start multiple MongoDB instances (e.g., on different ports or servers).",
+            "Access the MongoDB shell for one instance.",
+            "Run `rs.initiate()` to initialize a replica set with the current instance as primary.",
+            "Add secondary nodes using `rs.add('host:port')` if needed.",
+            "Verify the replica set status with `rs.status()`."
+          ]
+        }
+      },
+      {
+        "chapter": 10,
+        "title": "Sharding",
+        "content": "Sharding in MongoDB distributes data across multiple servers (shards) to improve scalability and performance for large datasets. Each shard holds a subset of the data, and a config server manages metadata, while a router (mongos) directs queries to the appropriate shard. Sharding is configured at the database or collection level, using a shard key to determine data distribution. This approach supports horizontal scaling, handling high read/write loads in applications like social media or e-commerce. Proper shard key selection and cluster management are critical for optimizing performance and avoiding bottlenecks.",
+        "quiz": [
+          {
+            "question": "What does sharding improve?",
+            "options": ["Query speed", "Scalability", "Indexing", "Validation"],
+            "answer": 1
+          },
+          {
+            "question": "What is a shard key?",
+            "options": ["A database name", "A field for data distribution", "An index type", "A query filter"],
+            "answer": 1
+          },
+          {
+            "question": "What component routes queries in sharding?",
+            "options": ["Primary node", "Mongos", "Config server", "Secondary node"],
+            "answer": 1
+          },
+          {
+            "question": "What does sharding enable?",
+            "options": ["Vertical scaling", "Horizontal scaling", "Synchronous queries", "Smaller datasets"],
+            "answer": 1
+          },
+          {
+            "question": "Why is shard key selection important?",
+            "options": ["To style data", "To optimize performance", "To simplify queries", "To reduce indexes"],
+            "answer": 1
+          }
+        ],
+        "practice": {
+          "question": "Enable sharding for a database.",
+          "solution": "sh.enableSharding('mydb')",
+          "steps": [
+            "Set up a MongoDB sharded cluster with mongos, config servers, and shards.",
+            "Access the MongoDB shell connected to a mongos instance.",
+            "Run `sh.enableSharding('mydb')` to enable sharding for the `mydb` database.",
+            "Verify sharding status with `sh.status()`.",
+            "Shard a collection with `sh.shardCollection` if needed."
+          ]
+        }
+      }
+    ]
+  }
+]
