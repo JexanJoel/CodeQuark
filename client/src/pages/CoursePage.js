@@ -49,7 +49,7 @@ const CoursePage = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.post(
-        'http://localhost:5000/api/progress',
+        'https://codequark.onrender.com//api/progress',
         {
           course,
           chapter: chapterIndex + 1,
