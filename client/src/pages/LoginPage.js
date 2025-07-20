@@ -14,7 +14,7 @@ const LoginPage = ({ setUser }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://codequark.onrender.com/', formData);
+      const res = await axios.post('https://codequark.onrender.com/api/login', formData);
       localStorage.setItem('token', res.data.token);
       setUser(res.data.user);
       navigate('/dashboard');
