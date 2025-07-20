@@ -106,12 +106,12 @@ const DashboardPage = () => {
         <div>
           {/* Welcome Message with Profile Icon */}
           <div className="flex items-center justify-between mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-purple-800 text-center flex-1">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-purple-800 text-center flex-1">
               👋 Welcome Back, {profile?.name || 'Learner'}!
             </h2>
             <button
               onClick={toggleSidebar}
-              className="p-2 rounded-full bg-purple-600 text-white hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+              className="p-2 rounded-full bg-purple-600 text-white hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 transition ml-4"
               aria-label="View profile"
             >
               <svg
