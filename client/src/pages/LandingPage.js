@@ -6,10 +6,10 @@ const LandingPage = () => {
     <div className="min-h-screen text-gray-800 flex flex-col bg-purple-100">
       {/* Hero Section */}
       <section className="bg-purple-200 text-center py-24 px-6 shadow-sm border-b">
-        <h1 className="text-5xl font-extrabold mb-4 text-purple-900 drop-shadow-sm">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 text-purple-900 drop-shadow-sm">
           Welcome to CodeQuark
         </h1>
-        <p className="text-xl mb-6 text-purple-900">
+        <p className="text-lg sm:text-xl mb-6 text-purple-900">
           Master React, Node.js & MongoDB with interactive hands-on learning.
         </p>
         <Link
