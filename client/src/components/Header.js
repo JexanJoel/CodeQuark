@@ -23,7 +23,7 @@ function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8 font-semibold">
           <Link to="/" className="text-white hover:text-purple-100 transition">
-            Home
+            🏠 Home
           </Link>
           {isAuthenticated ? (
             <>
@@ -31,13 +31,13 @@ function Header() {
                 to="/dashboard"
                 className="text-white hover:text-purple-100 transition"
               >
-                Courses
+                📚 Courses
               </Link>
               <button
                 onClick={handleLogout}
                 className="text-white hover:text-red-300 transition"
               >
-                Logout
+                🔓 Logout
               </button>
             </>
           ) : (
@@ -46,13 +46,13 @@ function Header() {
                 to="/login"
                 className="text-white hover:text-purple-100 transition"
               >
-                Login
+                🔑 Login
               </Link>
               <Link
                 to="/signup"
                 className="text-white hover:text-purple-100 transition"
               >
-                Register
+                📝 Register
               </Link>
             </>
           )}
@@ -69,13 +69,13 @@ function Header() {
 
       {/* Mobile Navigation Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-purple-700 border-t border-purple-500 px-6 py-6 text-center space-y-5">
+        <div className="md:hidden bg-purple-700 border-t border-purple-500 px-6 py-6 space-y-4 text-left">
           <Link
             to="/"
             className="block text-white font-semibold hover:text-purple-100 transition"
             onClick={() => setMenuOpen(false)}
           >
-            Home
+            🏠 Home
           </Link>
           {isAuthenticated ? (
             <>
@@ -84,13 +84,13 @@ function Header() {
                 className="block text-white font-semibold hover:text-purple-100 transition"
                 onClick={() => setMenuOpen(false)}
               >
-                Courses
+                📚 Courses
               </Link>
               <button
                 onClick={handleLogout}
-                className="block w-full text-white font-semibold hover:text-red-300 transition text-center"
+                className="block w-full text-left text-white font-semibold hover:text-red-300 transition"
               >
-                Logout
+                🔓 Logout
               </button>
             </>
           ) : (
@@ -100,14 +100,14 @@ function Header() {
                 className="block text-white font-semibold hover:text-purple-100 transition"
                 onClick={() => setMenuOpen(false)}
               >
-                Login
+                🔑 Login
               </Link>
               <Link
                 to="/signup"
                 className="block text-white font-semibold hover:text-purple-100 transition"
                 onClick={() => setMenuOpen(false)}
               >
-                Register
+                📝 Register
               </Link>
             </>
           )}
