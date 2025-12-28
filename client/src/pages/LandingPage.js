@@ -6,10 +6,10 @@ const LandingPage = () => {
     <div className="min-h-screen text-gray-800 flex flex-col bg-purple-100">
       {/* Hero Section */}
       <section className="bg-purple-200 text-center py-24 px-6 shadow-sm border-b">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 text-purple-900 drop-shadow-sm">
+        <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold mb-4 text-purple-900 drop-shadow-sm whitespace-nowrap overflow-x-auto">
           Welcome to CodeQuark
         </h1>
-        <p className="text-lg sm:text-xl mb-6 text-purple-900">
+        <p className="text-base sm:text-lg mb-6 text-purple-900">
           Master React, Node.js & MongoDB with interactive hands-on learning.
         </p>
         <Link
@@ -22,7 +22,7 @@ const LandingPage = () => {
 
       {/* Features Section */}
       <section className="py-20 bg-purple-100 text-center">
-        <h2 className="text-3xl font-extrabold mb-12 text-purple-900">What You'll Learn</h2>
+        <h2 className="text-2xl sm:text-3xl font-extrabold mb-12 text-purple-900">What You'll Learn</h2>
         <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto px-6">
           {[
             { title: 'React', desc: 'Build dynamic UIs with modern React hooks and components.' },
@@ -33,7 +33,7 @@ const LandingPage = () => {
               key={title}
               className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 border-t-4 border-purple-600"
             >
-              <h3 className="text-2xl font-bold text-purple-700 mb-2">{title}</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-purple-700 mb-2">{title}</h3>
               <p className="text-gray-700">{desc}</p>
             </div>
           ))}
@@ -42,7 +42,7 @@ const LandingPage = () => {
 
       {/* Why Choose Us Section */}
       <section className="py-20 bg-purple-200 text-center">
-        <h2 className="text-3xl font-extrabold mb-12 text-purple-900">Why Choose Our Platform?</h2>
+        <h2 className="text-2xl sm:text-3xl font-extrabold mb-12 text-purple-900">Why Choose Our Platform?</h2>
         <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto px-6 text-left">
           {[
             ['👨‍🏫 Expert Content', 'Courses created by real-world developers and professionals.'],
@@ -60,7 +60,7 @@ const LandingPage = () => {
 
       {/* Testimonials Section */}
       <section className="py-20 bg-purple-100 text-center">
-        <h2 className="text-3xl font-extrabold mb-12 text-purple-900">What Our Students Say</h2>
+        <h2 className="text-2xl sm:text-3xl font-extrabold mb-12 text-purple-900">What Our Students Say</h2>
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6">
           {[
             ['I built a MERN project in 3 weeks thanks to this platform!', '— Priya M.'],
@@ -80,8 +80,8 @@ const LandingPage = () => {
 
       {/* Learning Path Section */}
       <section className="py-20 bg-purple-200 text-center">
-        <h2 className="text-3xl font-extrabold mb-6 text-purple-900">Your Learning Path</h2>
-        <p className="max-w-2xl mx-auto mb-10 text-purple-900">
+        <h2 className="text-2xl sm:text-3xl font-extrabold mb-6 text-purple-900">Your Learning Path</h2>
+        <p className="max-w-2xl mx-auto mb-10 text-purple-900 text-sm sm:text-base">
           A structured path from fundamentals to deployment, built for complete beginners to pros.
         </p>
         <div className="flex flex-col md:flex-row justify-center gap-6 px-6">
@@ -103,14 +103,14 @@ const LandingPage = () => {
 
       {/* Mobile Friendly Section */}
       <section className="py-20 bg-purple-100 text-center">
-        <h2 className="text-3xl font-extrabold mb-6 text-purple-900">Learn Anywhere, Anytime</h2>
-        <p className="max-w-xl mx-auto text-purple-900 mb-10">
+        <h2 className="text-2xl sm:text-3xl font-extrabold mb-6 text-purple-900">Learn Anywhere, Anytime</h2>
+        <p className="max-w-xl mx-auto text-purple-900 mb-10 text-sm sm:text-base">
           Our platform is fully responsive — take your courses with you on desktop, tablet, or mobile devices.
         </p>
         <img
           src="https://cdn-icons-png.flaticon.com/512/3659/3659895.png"
           alt="Mobile learning"
-          className="mx-auto w-32 md:w-44 hover:scale-105 transition-transform"
+          className="mx-auto w-24 sm:w-32 md:w-44 hover:scale-105 transition-transform"
         />
       </section>
     </div>
