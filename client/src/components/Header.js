@@ -14,46 +14,65 @@ function Header() {
   };
 
   return (
-    <header className="bg-white shadow sticky top-0 z-50">
+    <header className="bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-purple-600">CodeQuark</h1>
+        <h1 className="text-2xl md:text-3xl font-extrabold text-white tracking-wide">
+          CodeQuark
+        </h1>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-6 font-medium">
-          <Link to="/" className="text-purple-600 hover:text-purple-700">Home</Link>
+        <nav className="hidden md:flex space-x-8 font-semibold">
+          <Link to="/" className="text-white hover:text-purple-100 transition">
+            Home
+          </Link>
           {isAuthenticated ? (
             <>
-              <Link to="/dashboard" className="text-purple-600 hover:text-purple-700">Dashboard</Link>
+              <Link
+                to="/dashboard"
+                className="text-white hover:text-purple-100 transition"
+              >
+                Courses
+              </Link>
               <button
                 onClick={handleLogout}
-                className="text-purple-600 hover:text-purple-700"
+                className="text-white hover:text-red-300 transition"
               >
-                Quit
+                Logout
               </button>
             </>
           ) : (
             <>
-              <Link to="/login" className="text-purple-600 hover:text-purple-700">Login</Link>
-              <Link to="/signup" className="text-purple-600 hover:text-purple-700">Register</Link>
+              <Link
+                to="/login"
+                className="text-white hover:text-purple-100 transition"
+              >
+                Login
+              </Link>
+              <Link
+                to="/signup"
+                className="text-white hover:text-purple-100 transition"
+              >
+                Register
+              </Link>
             </>
           )}
         </nav>
 
         {/* Mobile Menu Icon */}
         <button
-          className="md:hidden text-purple-600"
+          className="md:hidden text-white"
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          {menuOpen ? <X size={28} /> : <Menu size={28} />}
+          {menuOpen ? <X size={30} /> : <Menu size={30} />}
         </button>
       </div>
 
       {/* Mobile Navigation Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white border-t px-6 py-4 text-center space-y-4">
+        <div className="md:hidden bg-purple-700 border-t border-purple-500 px-6 py-6 text-center space-y-5">
           <Link
             to="/"
-            className="block text-purple-600 font-medium hover:text-purple-700 transition"
+            className="block text-white font-semibold hover:text-purple-100 transition"
             onClick={() => setMenuOpen(false)}
           >
             Home
@@ -62,30 +81,30 @@ function Header() {
             <>
               <Link
                 to="/dashboard"
-                className="block text-purple-600 font-medium hover:text-purple-700 transition"
+                className="block text-white font-semibold hover:text-purple-100 transition"
                 onClick={() => setMenuOpen(false)}
               >
-                Dashboard
+                Courses
               </Link>
               <button
                 onClick={handleLogout}
-                className="block w-full text-purple-600 font-medium hover:text-purple-700 transition text-center"
+                className="block w-full text-white font-semibold hover:text-red-300 transition text-center"
               >
-                Quit
+                Logout
               </button>
             </>
           ) : (
             <>
               <Link
                 to="/login"
-                className="block text-purple-600 font-medium hover:text-purple-700 transition"
+                className="block text-white font-semibold hover:text-purple-100 transition"
                 onClick={() => setMenuOpen(false)}
               >
                 Login
               </Link>
               <Link
                 to="/signup"
-                className="block text-purple-600 font-medium hover:text-purple-700 transition"
+                className="block text-white font-semibold hover:text-purple-100 transition"
                 onClick={() => setMenuOpen(false)}
               >
                 Register
