@@ -16,8 +16,8 @@ const CoursePage = () => {
       try {
         const token = localStorage.getItem('token');
         const [courseRes, profileRes] = await Promise.all([
-          axios.get(`http://localhost:5000/api/courses/${course}`),
-          axios.get('http://localhost:5000/api/profile', {
+          axios.get(`https://codequark.onrender.com/api/courses/${course}`),
+          axios.get('https://codequark.onrender.com/api/profile', {
             headers: { Authorization: `Bearer ${token}` },
           }),
         ]);
@@ -49,7 +49,7 @@ const CoursePage = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.post(
-        'http://localhost:5000/api/progress',
+        'https://codequark.onrender.com/api/progress',
         {
           course,
           chapter: chapterIndex + 1,
